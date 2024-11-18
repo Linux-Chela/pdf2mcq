@@ -16,19 +16,17 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 
-# Function to read PDF content in chunks
-def read_pdf_in_chunks(file_path, pages_per_chunk=10):
+# Read PDF in chunks
+def read_pdf_in_chunks(file_path, pages_per_chunk=3):
     text_chunks = []
     with open(file_path, "rb") as file:
         pdf_reader = PyPDF2.PdfReader(file)
         for start in range(0, len(pdf_reader.pages), pages_per_chunk):
             chunk = ""
             for page_num in range(start, min(start + pages_per_chunk, len(pdf_reader.pages))):
-                page = pdf_reader.pages[page_num]
-                chunk += page.extract_text()
+                chunk += pdf_reader.pages[page_num].extract_text()
             text_chunks.append(chunk)
     return text_chunks
-
 
 @app.route("/", methods=["GET", "POST"])
 def index():
