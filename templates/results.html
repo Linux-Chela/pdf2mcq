@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated MCQs</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Download button -->
+        <a href="/download/output.txt" class="btn download-btn">Download Output File</a>
+        <h1>Generated MCQs</h1>
+        {% for response in responses %}
+            <pre>{{ response }}</pre>
+            <hr>
+        {% endfor %}
+        <!-- Styled Go Back button -->
+        <a href="/" class="btn go-back-btn">Go Back</a>
+    </div>
+</body>
+</html>
