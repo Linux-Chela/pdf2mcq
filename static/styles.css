@@ -159,14 +159,6 @@ textarea {
     font-size: 16px;
 }
 
-/* Hacker-style animation colors */
-.hacker-text {
-    color: #000000;
-    font-family: "Courier New", monospace;
-    font-size: 18px;
-    text-shadow: 0 0 5px #000000, 0 0 10px #000000, 0 0 20px #000000;
-}
-
 /* Animation for typing effect */
 .typing-animation {
     display: inline-block;
