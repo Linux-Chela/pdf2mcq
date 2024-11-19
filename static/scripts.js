@@ -1,6 +1,7 @@
 // Open and close the modal
 function openAskModal() {
     document.getElementById("askModal").style.display = "block";
+    document.getElementById("responseContainer").innerHTML = ""; // Clear previous responses
 }
 
 function closeAskModal() {
@@ -17,6 +18,11 @@ function submitPrompt() {
         return;
     }
 
+    // Display "Generating..." with animation
+    responseContainer.innerHTML = `
+        <p class="hacker-text typing-animation">Generating...</p>
+    `;
+
     fetch("/ask", {
         method: "POST",
         headers: {
@@ -27,12 +33,12 @@ function submitPrompt() {
         .then(response => response.json())
         .then(data => {
             if (data.response) {
-                responseContainer.innerHTML = `<p><strong>Response:</strong> ${data.response}</p>`;
+                responseContainer.innerHTML = `<p class="hacker-text"><strong>Response:</strong> ${data.response}</p>`;
             } else {
-                responseContainer.innerHTML = `<p>Error: ${data.error}</p>`;
+                responseContainer.innerHTML = `<p class="hacker-text">Error: ${data.error}</p>`;
             }
         })
         .catch(error => {
-            responseContainer.innerHTML = `<p>Error: Something went wrong.</p>`;
+            responseContainer.innerHTML = `<p class="hacker-text">Error: Something went wrong.</p>`;
         });
 }
