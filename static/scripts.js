@@ -33,12 +33,12 @@ function submitPrompt() {
         .then(response => response.json())
         .then(data => {
             if (data.response) {
-                responseContainer.innerHTML = `<pre>${data.response}</pre>`;
+                responseContainer.innerHTML = `<p class="hacker-text"><strong>Response:</strong> ${data.response}</p>`;
             } else {
-                responseContainer.innerHTML = `<p>Error: ${data.error}</p>`;
+                responseContainer.innerHTML = `<p class="hacker-text">Error: ${data.error}</p>`;
             }
         })
         .catch(error => {
-            responseContainer.innerHTML = `<p>Error: Something went wrong.</p>`;
+            responseContainer.innerHTML = `<p class="hacker-text">Error: Something went wrong.</p>`;
         });
 }

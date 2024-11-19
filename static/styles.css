@@ -125,26 +125,25 @@ pre {
     animation: pulse 2s infinite;
 }
 
-/* Modal structure and styles */
+/* Modal styles */
 .modal {
     display: none;
     position: fixed;
-    top: 0;
+    z-index: 1000;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-    background: #fff;
+    background: white;
     padding: 20px;
+    margin: 10% auto;
+    width: 50%;
     border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
+    text-align: center;
 }
 
 .close {
@@ -162,10 +161,10 @@ textarea {
 
 /* Hacker-style animation colors */
 .hacker-text {
-    color: #00ff00;
+    color: #000000;
     font-family: "Courier New", monospace;
     font-size: 18px;
-    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+    text-shadow: 0 0 5px #000000, 0 0 10px #000000, 0 0 20px #000000;
 }
 
 /* Animation for typing effect */
@@ -173,7 +172,7 @@ textarea {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 2px solid #00ff00;
+    border-right: 2px solid #000000;
     animation: typing 2s steps(20, end), blink 0.5s step-end infinite alternate;
 }
 
@@ -198,13 +197,17 @@ textarea {
 
 /* Scrollable response container */
 #responseContainer {
-    max-height: 300px;
-    overflow-y: auto;
-    background: #f9f9f9;
+    max-height: 300px; /* Limit the height of the container */
+    overflow-y: auto; /* Enable vertical scrolling */
     padding: 10px;
+    background: #f9f9f9; /* Light background for better readability */
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-top: 15px;
+    color: #333; /* Normal font color */
+    font-family: 'Arial', sans-serif; /* Normal font */
+    font-size: 16px;
+    white-space: pre-wrap; /* Preserve formatting */
 }
 
 /* Modal title styles */

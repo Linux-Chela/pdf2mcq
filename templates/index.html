@@ -27,29 +27,8 @@
                 <button class="btn" onclick="submitPrompt()">Submit</button>
                 <div id="responseContainer"></div> <!-- Scrollable response container -->
             </div>
-        </div>    
-
-        <div class="container">
-            <h1>Upload a PDF to Generate MCQs</h1>
-            <form action="/" method="post" enctype="multipart/form-data">
-                <input type="file" name="pdf_file" required>
-                <button type="submit" class="btn">Generate MCQs</button>
-            </form>
-            <!-- New Prompt button -->
-            <button class="btn" onclick="openAskModal()">Prompt</button>
         </div>
-        
-        <!-- Modal for custom prompt -->
-        <div id="askModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeAskModal()">&times;</span>
-                <h2>Ask Any Question from the PDF</h2>
-                <textarea id="userPrompt" placeholder="Type your question here..." rows="5"></textarea>
-                <button class="btn" onclick="submitPrompt()">Submit</button>
-                <div id="responseContainer"></div>
-            </div>
-        </div>
-        
+    
     </div>
 
     <script src="/static/scripts.js"></script>
