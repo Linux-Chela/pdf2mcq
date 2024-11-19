@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for, send_from_directory
+from flask import Flask, request, render_template, redirect, url_for, send_from_directory, jsonify
 import google.generativeai as genai
 import PyPDF2
 import os
@@ -72,6 +72,18 @@ def index():
         return render_template("results.html", responses=responses)
 
     return render_template("index.html")
+
+
+@app.route("/ask", methods=["POST"])
+def ask():
+    prompt = request.json.get("prompt")
+    if not prompt:
+        return jsonify({"error": "Prompt is required"}), 400
+
+    # Generate response from the model
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    response = model.generate_content(prompt)
+    return jsonify({"response": response.text})
 
 
 @app.route("/download/<filename>")
