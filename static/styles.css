@@ -193,3 +193,36 @@ textarea {
         border-color: transparent;
     }
 }
+
+
+/* Scrollable response container */
+#responseContainer {
+    max-height: 300px; /* Limit the height of the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+    background: #f9f9f9; /* Light background for better readability */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 15px;
+    color: #333; /* Normal font color */
+    font-family: 'Arial', sans-serif; /* Normal font */
+    font-size: 16px;
+    white-space: pre-wrap; /* Preserve formatting */
+}
+
+/* Modal title styles */
+#askModal h2 {
+    color: #333; /* Normal font color */
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* Adjust text inside the modal */
+#askModal textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}

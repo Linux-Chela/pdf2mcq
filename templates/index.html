@@ -18,15 +18,16 @@
         <button class="btn ask-btn" onclick="openAskModal()">Ask Me</button>
 
         <!-- Modal for "Ask Me" -->
+        <!-- Modal structure -->
         <div id="askModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeAskModal()">&times;</span>
-                <h2 class="hacker-text">Ask Me Anything</h2>
+                <h2>Ask Me Anything</h2> <!-- Updated to use normal font color -->
                 <textarea id="userPrompt" placeholder="Type your question here..." rows="5"></textarea>
                 <button class="btn" onclick="submitPrompt()">Submit</button>
-                <div id="responseContainer" class="hacker-text"></div> <!-- Response area -->
+                <div id="responseContainer"></div> <!-- Scrollable response container -->
             </div>
-        </div>        
+        </div>    
     </div>
 
     <script src="/static/scripts.js"></script>
