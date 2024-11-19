@@ -90,6 +90,29 @@ def ask():
 def download_file(filename):
     return send_from_directory(app.config["UPLOAD_FOLDER"], filename, as_attachment=True)
 
+@app.route("/ask", methods=["POST"])
+def ask_question():
+    data = request.get_json()
+    prompt = data.get("prompt", "")
+    if not prompt.strip():
+        return {"error": "No prompt provided"}, 400
+
+    # Retrieve uploaded PDF
+    file_path = os.path.join(app.config["UPLOAD_FOLDER"], os.listdir(app.config["UPLOAD_FOLDER"])[0])
+    pdf_chunks = read_pdf_in_chunks(file_path)
+
+    # Combine PDF content into a single string
+    pdf_content = "\n".join(pdf_chunks)
+
+    # Use the user's custom prompt
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    full_prompt = f"Document Content:\n{pdf_content}\n\n{prompt}"
+    try:
+        response = model.generate_content(full_prompt)
+        return {"response": response.text}
+    except Exception as e:
+        return {"error": str(e)}, 500
+
 
 if __name__ == "__main__":
     app.run(debug=True)
